@@ -33,20 +33,14 @@ apk del .fetch-deps
 
 cd /usr/src/python
 gnuArch="$(dpkg-architecture --query DEB_BUILD_GNU_TYPE)"
-./configure --build="$gnuArch" --enable-loadable-sqlite-extensions --enable-shared --with-system-expat --with-system-ffi --without-ensurepip
+./configure --build="$gnuArch" --enable-shared --enable-unicode=ucs4
 make -j "$(nproc)" EXTRA_CFLAGS="-DTHREAD_STACK_SIZE=0x100000"
 make install
 find /usr/local -type f -executable -not \( -name '*tkinter*' \) -exec scanelf --needed --nobanner --format '%n#p' '{}' ';' | tr ',' '\n' | sort -u | awk 'system("[ -e /usr/local/lib/" $1 " ]") == 0 { next } { print "so:" $1 }' | xargs -rt apk add --virtual .python-rundeps
 apk del .build-deps
 find /usr/local -depth \( \( -type d -a \( -name test -o -name tests \) \) -o \( -type f -a \( -name '*.pyc' -o -name '*.pyo' \) \) \) -exec rm -rf '{}' + 
 rm -rf /usr/src/python
-python3 --version
-
-cd /usr/local/bin
-ln -s idle3 idle
-ln -s pydoc3 pydoc
-ln -s python3 python
-ln -s python3-config python-config
+python2 --version
 
 #############################################
 # Install PIP
