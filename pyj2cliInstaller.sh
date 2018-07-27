@@ -1,10 +1,17 @@
 #!/bin/bash
+#############################################
+# Installler Python and j2cli
+#############################################
+
 export GPG_KEY="0D96DF4D4110E5C43FBFB17F2D347EA6AA65421D"
 export PATH="/usr/local/bin:$PATH"
 export LANG="C.UTF-8"
 export PYTHON_VERSION="3.7.0"
 export PYTHON_PIP_VERSION="18.0"
 
+#############################################
+# Install Python
+#############################################
 apk add --no-cache ca-certificates
 set -ex
 apk add --no-cache --virtual .fetch-deps gnupg openssl tar xz
@@ -41,6 +48,9 @@ ln -s pydoc3 pydoc
 ln -s python3 python
 ln -s python3-config python-config
 
+#############################################
+# Install PIP
+#############################################
 set -ex
 apk add --no-cache --virtual .fetch-deps openssl
 wget -O get-pip.py 'https://bootstrap.pypa.io/get-pip.py'
@@ -50,4 +60,8 @@ pip --version
 find /usr/local -depth \( \( -type d -a \( -name test -o -name tests \) \) -o \( -type f -a \( -name '*.pyc' -o -name '*.pyo' \) \) \) -exec rm -rf '{}' +
 rm -f get-pip.py
 
+#############################################
+# Install j2cli (Jinja2 Command-Line Tool)
+# https://github.com/kolypto/j2cli
+#############################################
 pip install j2cli
