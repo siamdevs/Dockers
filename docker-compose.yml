@@ -5,4 +5,3 @@ services:
     image: siamdevs/php5-fpm
     build: ./php5-fpm
     container_name: siamdevs_php5-fpm
-    command: "/bin/sh"
