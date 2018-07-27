@@ -3,11 +3,11 @@
 # Installler Python and j2cli
 #############################################
 
-export GPG_KEY="0D96DF4D4110E5C43FBFB17F2D347EA6AA65421D"
+export GPG_KEY="C01E1CAD5EA2C4F0B8E3571504C367C218ADD4FF"
 export PATH="/usr/local/bin:$PATH"
 export LANG="C.UTF-8"
-export PYTHON_VERSION="3.7.0"
-export PYTHON_PIP_VERSION="18.0"
+export PYTHON_VERSION="2.7.15"
+export PYTHON_PIP_VERSION="10.0.1"
 
 #############################################
 # Install Python
