@@ -1,6 +1,7 @@
 #!/bin/sh
 #############################################
 # Installer: python2.7, pip And j2cli 
+# Version: 1.0.1
 #############################################
 
 export GNUPGHOME="$(mktemp -d)"
@@ -63,6 +64,7 @@ pip --version;
 find /usr/local -depth \( \( -type d -a \( -name test -o -name tests \) \) -o \( -type f -a \( -name '*.pyc' -o -name '*.pyo' \) \) \) -exec rm -rf '{}' +
 rm -f get-pip.py
 rm -rf /usr/src/pip
+
 #############################################
 # Install j2cli (Jinja2 Command-Line Tool)
 # https://github.com/kolypto/j2cli
