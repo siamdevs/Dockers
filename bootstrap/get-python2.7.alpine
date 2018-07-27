@@ -1,4 +1,7 @@
 #!/bin/sh
+#############################################
+# Installer: python2.7, pip And j2cli 
+#############################################
 
 export GNUPGHOME="$(mktemp -d)"
 export PATH="/usr/local/bin:$PATH"
