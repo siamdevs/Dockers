@@ -1,0 +1,7 @@
+---
+version: "3"
+services: 
+  PHP5_FPM:
+    image: siamdevs/php5-fpm
+    build: ./php5-fpm
+    container_name: siamdevs_php5-fpm
